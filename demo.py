@@ -1,4 +1,6 @@
 """Simple demonstration of how ILAMB catalogs could work (in progress)"""
+from typing import Iterable
+
 import intake
 
 # Load the ILAMB catalog and list its contents. One item is a pointer to another
@@ -49,3 +51,24 @@ data = src.read()
 #     provider gives you access. For example, the MPI data portal has a custom
 #     system where you give it an email and they send you a temporary link where
 #     you can download the data.
+
+# But you can envision building a ILAMB catalog with a nice search capability.
+# Depending on how you choose to populate metadata, you can write search
+# functions so users can see what is available.
+def search_for_variable(cat: intake.Catalog, variable: str, found: list = []):
+    """search the catalog for a given variable"""
+    for i in cat:
+        if isinstance(cat[i], Iterable):
+            search_for_variable(cat[i], variable, found)
+        else:
+            if (
+                "variables" in cat[i].metadata
+                and variable in cat[i].metadata["variables"]
+            ):
+                found.append(cat[i])
+    return found
+
+
+fnd = search_for_variable(cat, "gpp")
+for f in fnd:
+    print(f)
