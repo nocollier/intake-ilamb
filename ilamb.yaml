@@ -1,0 +1,47 @@
+description: "Catalog for ILAMB data that has been reprocessed."
+
+sources:
+
+  ilamb-raw:
+    args:
+      path: ilamb-raw.yaml
+    description: "Catalog for the raw data used to create ILAMB datasets"
+    driver: intake.catalog.local.YAMLFileCatalog
+
+  WECANN|gpp:
+    description: "Gross primary productivity from WECANN data with minor formatting fixes"
+    metadata:
+      variables:
+        - gpp
+    driver: netcdf
+    args: 
+      urlpath: 'filecache::https://www.ilamb.org/ILAMB-Data/DATA/gpp/WECANN/gpp.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{{env("HOME")}}/.intake/cache'
+
+  WECANN|hfls:
+    description: "Latent heat from WECANN data with minor formatting fixes"
+    metadata:
+      variables:
+        - hfls
+    driver: netcdf
+    args: 
+      urlpath: 'filecache::https://www.ilamb.org/ILAMB-Data/DATA/hfls/WECANN/hfls.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{{env("HOME")}}/.intake/cache'
+
+  WECANN|hfss:
+    description: "Sensible heat from WECANN data with minor formatting fixes"
+    metadata:
+      variables:
+        - hfss
+    driver: netcdf
+    args: 
+      urlpath: 'filecache::https://www.ilamb.org/ILAMB-Data/DATA/hfss/WECANN/hfss.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{{env("HOME")}}/.intake/cache'
+
+

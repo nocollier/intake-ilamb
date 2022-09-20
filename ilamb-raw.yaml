@@ -1,0 +1,96 @@
+description: "Catalog for the raw data used to create ILAMB datasets"
+
+sources:
+
+  CLASS:
+    description: "Conserving Land-Atmosphere Synthesis Suite (CLASS). These
+    estimates of simultaneously balanced surface water and energy budget
+    components over 2003-2009 that are coherent by being able to solve the water
+    and energy budgets simultaneously at 0.5-degree grid scale. The individual
+    budget variables, where possible (1) combine a range of existing global
+    estimates, (2) are observationally constrained with in-situ observations,
+    and (3) have uncertainty estimates that reflect their agreement with in-situ
+    measurements." 
+    metadata:
+      version: 1.1
+      publication: '10.25914/5c872258dc183'
+      variables:
+        - rns
+        - hfss
+        - hfls
+        - hfdsl
+        - pr
+        - mrro
+    driver: intake_thredds.source.THREDDSMergedSource
+    args:
+      url: https://dapds00.nci.org.au/thredds/catalog/ks32/ARCCSS_Data/CLASS/v1-1/catalog.xml
+      concat_kwargs:
+        dim: time
+      driver: netcdf
+      path:
+      - CLASS_v1-1_*
+
+  DaviesBarnard:
+    description: "This dataset provides a global benchmark showing the spatial
+    distribution of biological nitrogen fixation using a bottom-up methodology."
+    metadata:
+      version: 1
+      publication: '10.1029/2019GB006387'
+      variables:
+        - fBNF
+    driver: netcdf
+    args:
+      urlpath: 'https://www.dropbox.com/s/5aj5yp3m5ucc531/fBNF.nc?dl=1'
+      xarray_kwargs:
+        decode_times: false
+          
+  ESACCI:
+    description: "This dataset comprises estimates of forest above-ground
+    biomass for the years 2010, 2017 and 2018. They are derived from a
+    combination of Earth observation data, depending on the year, from the
+    Copernicus Sentinel-1 mission, Envisat's ASAR instrument and JAXA's Advanced
+    Land Observing Satellite (ALOS-1 and ALOS-2), along with additional
+    information from Earth observation sources. The data has been produced as
+    part of the European Space Agency's (ESA's) Climate Change Initiative (CCI)
+    programme by the Biomass CCI team." 
+    metadata:
+      version: 3
+      publication: '10.5285/5f331c418e9f4935b8eb1b836f8a91b8'
+      variables:
+        - cVeg
+        - cStem
+    driver: netcdf
+    args:
+      urlpath: 'https://dap.ceda.ac.uk/neodc/esacci/biomass/data/agb/maps/v3.0/netcdf/ESACCI-BIOMASS-L4-AGB-MERGED-100m-2010-fv3.0.nc'
+
+  XuSaatchi:
+    description: Broken
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://zenodo.org/record/4161694/files/test10a_cd_ab_pred_corr_2000_2019_v2.tif'
+      storage_options:
+        filecache:
+          cache_storage: '{{env("HOME")}}/.intake/cache'
+          
+  WECANN:
+    description: "Water, Energy, and Carbon with Artificial Neural Networks
+    (WECANN). This catalog provides access to a data product which uses Solar
+    Induced Fluorescence (SIF), Air Temperature, Precipitation, Net Radiation,
+    Soil Moisture and Snow Water Equivalent to form global estimates of Gross
+    Primary Productivity, Latent and Sensible Heat." 
+    metadata:
+      version: 1 
+      publication: "10.5194/bg-14-4101-2017"
+      variables: 
+        - gpp
+        - hfls
+        - hfss
+    driver: netcdf
+    args: 
+      urlpath: 'filecache::https://avdc.gsfc.nasa.gov/pub/data/project/WECANN/WECANN_v1.0.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{{env("HOME")}}/.intake/cache'
+      
+
+
