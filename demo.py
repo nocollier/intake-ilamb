@@ -33,7 +33,7 @@ print(src)
 # 'data' is then a merged xarray dataset with all the years available. The nice
 # thing about this is if they added years on their end, I would pick it up
 # automatically.
-data = src.read()
+# src.read() # <-- uncomment to download data
 
 # I envision having a catalog of the raw data ILAMB uses as well as our
 # processed versions--both could have their uses. Note that for now the data
@@ -55,17 +55,19 @@ data = src.read()
 # But you can envision building a ILAMB catalog with a nice search capability.
 # Depending on how you choose to populate metadata, you can write search
 # functions so users can see what is available.
-def search_for_variable(cat: intake.Catalog, variable: str, found: list = []):
+def search_for_variable(catalog: intake.Catalog, variable: str, found: list = None):
     """search the catalog for a given variable"""
-    for i in cat:
-        if isinstance(cat[i], Iterable):
-            search_for_variable(cat[i], variable, found)
+    if found is None:
+        found = []
+    for i in catalog:
+        if isinstance(catalog[i], Iterable):
+            search_for_variable(catalog[i], variable, found)
         else:
             if (
-                "variables" in cat[i].metadata
-                and variable in cat[i].metadata["variables"]
+                "variables" in catalog[i].metadata
+                and variable in catalog[i].metadata["variables"]
             ):
-                found.append(cat[i])
+                found.append(catalog[i])
     return found
 
 
