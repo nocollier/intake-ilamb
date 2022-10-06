@@ -3,12 +3,6 @@ description: "Catalog for ILAMB data that has been reprocessed."
 
 sources:
 
-  ilamb-raw:
-    args:
-      path: '{{ CATALOG_DIR }}/ilamb-raw.yaml'
-    description: "Catalog for the raw data used to create ILAMB datasets"
-    driver: intake.catalog.local.YAMLFileCatalog
-
   lai | AVH15C1: 
     description: NOAA Climate Data Record (CDR) of AVHRR Leaf Area Index (LAI) and Fraction of Absorbed Photosynthetically Active Radiation (FAPAR), AVH15C1
     driver: netcdf
