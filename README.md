@@ -5,7 +5,7 @@ Intake is a lightweight set of python tools for loading and sharing data in data
 Usage
 -----
 
-In order to use this catalog, first [install](https://github.com/intake/intake#install) intake. 
+In order to use this catalog, first [install](https://github.com/intake/intake#install) intake. Nothing from this package needs installed. You can simply load the catalog in your python script by pointing to the remote file on Github.
 
 ```python
 import intake
@@ -24,7 +24,7 @@ By selecting a key relating to the dataset we wish to use, we get back an intake
 src = cat['gpp | FLUXCOM']
 %time gpp = src.read()  # 9.84 [s]
 ```
-The first time you read a dataset on a given system, you will be downloading the data. The above read took almost 10 seconds. However, on subsequent calls to read, intake manages a cache and the data will be read much faster and locally from your system. Each data source in this catalog will return a xarray dataset to you that you can then use in your analysis scripts.
+The first time you read a dataset on a given system, you will be downloading the data. The above `read()` took almost 10 seconds. However, on subsequent calls, intake manages a cache and the data will be read much faster and locally from your system. Each data source in this catalog will return a xarray dataset to you that you can then use in your analysis scripts.
 ```python
 <xarray.Dataset>
 Dimensions:      (time: 408, nb: 2, lat: 360, lon: 720)
@@ -47,3 +47,4 @@ Attributes:
     convention:    CF-1.8
 
 ```
+This allows you to write analysis scripts utilizing ILAMB data that will run anywhere with a connection to the internet without the need to setup and separately download the data.
