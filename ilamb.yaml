@@ -660,20 +660,38 @@ sources:
         filecache:
           cache_storage: '{{env("HOME")}}/.intake/cache'
 
-  biomass | Tropical: 
+  biomass | Saatchi2011: 
     description: Global Tropical Forest Biomass
     driver: netcdf
     args:
-      urlpath: 'filecache::https://www.ilamb.org/ILAMB-Data/DATA/biomass/Tropical/biomass_0.5x0.5.nc'
+      urlpath: 'filecache::https://www.ilamb.org/ILAMB-Data/DATA/biomass/Saatchi2011/biomass_0.5x0.5.nc'
       storage_options:
         filecache:
           cache_storage: '{{env("HOME")}}/.intake/cache'
 
-  biomass | US.FOREST: 
+  biomass | USForest: 
     description: nan
     driver: netcdf
     args:
-      urlpath: 'filecache::https://www.ilamb.org/ILAMB-Data/DATA/biomass/US.FOREST/biomass_0.5x0.5.nc'
+      urlpath: 'filecache::https://www.ilamb.org/ILAMB-Data/DATA/biomass/USForest/biomass_0.5x0.5.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{{env("HOME")}}/.intake/cache'
+
+  biomass | XuSaatchi2021: 
+    description: Changes in Global Terrestrial Live Biomass over the 21st Century
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/ILAMB-Data/DATA/biomass/XuSaatchi2021/XuSaatchi.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{{env("HOME")}}/.intake/cache'
+
+  biomass | GEOCARBON: 
+    description: Forest Aboveground Biomass
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/ILAMB-Data/DATA/biomass/GEOCARBON/biomass.nc'
       storage_options:
         filecache:
           cache_storage: '{{env("HOME")}}/.intake/cache'
@@ -818,6 +836,24 @@ sources:
     driver: netcdf
     args:
       urlpath: 'filecache::https://www.ilamb.org/ILAMB-Data/DATA/regions/GlobalLandNoAnt.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{{env("HOME")}}/.intake/cache'
+
+  regions_above | ABoVE: 
+    description: The ABoVE region
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/ILAMB-Data/DATA/regions/ABoVE.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{{env("HOME")}}/.intake/cache'
+
+  ch4 | FluxnetANN: 
+    description: Methane Emissions
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/ILAMB-Data/DATA/ch4/FluxnetANN/FCH4_F_ANN_monthly_wetland_tier1.nc'
       storage_options:
         filecache:
           cache_storage: '{{env("HOME")}}/.intake/cache'
