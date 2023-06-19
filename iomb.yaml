@@ -1,0 +1,175 @@
+version: 0.1
+description: "Catalog for IOMB data that has been reprocessed."
+
+sources:
+
+  chl | MODISAqua: 
+    description: MODISA Level-3 Standard Mapped Image
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/IOMB-Data/DATA/MODISAqua/MODISAqua.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{env("HOME")}/.intake/cache'
+
+  chl | SeaWIFS: 
+    description: SeaWiFS Level-3 Standard Mapped Image
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/IOMB-Data/DATA/SeaWIFS/SeaWIFS.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{env("HOME")}/.intake/cache'
+
+  chla | GLODAP2.2022: 
+    description: Global Ocean Data Analysis Project, A uniformly calibrated open ocean data product on inorganic carbon and carbon-relevant variables
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/IOMB-Data/DATA/GLODAP2.2022/chla.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{env("HOME")}/.intake/cache'
+
+  dcant | Gruber: 
+    description: Vertically integrated changes in Cant between 1994 and 2007
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/IOMB-Data/DATA/Gruber/Gruber.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{env("HOME")}/.intake/cache'
+
+  dcant | OCIM: 
+    description: Column inventory change in Cant from 1994 to 2007 using the ocean circulation inverse model (OCIM)
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/IOMB-Data/DATA/OCIM/OCIM.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{env("HOME")}/.intake/cache'
+
+  dissic | GLODAP2.2022: 
+    description: Global Ocean Data Analysis Project, A uniformly calibrated open ocean data product on inorganic carbon and carbon-relevant variables
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/IOMB-Data/DATA/GLODAP2.2022/dissic.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{env("HOME")}/.intake/cache'
+
+  no3 | GLODAP2.2022: 
+    description: Global Ocean Data Analysis Project, A uniformly calibrated open ocean data product on inorganic carbon and carbon-relevant variables
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/IOMB-Data/DATA/GLODAP2.2022/no3.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{env("HOME")}/.intake/cache'
+
+  no3 | WOA2018: 
+    description: World Ocean Atlas
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/IOMB-Data/DATA/WOA2018/no3.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{env("HOME")}/.intake/cache'
+
+  o2 | GLODAP2.2022: 
+    description: Global Ocean Data Analysis Project, A uniformly calibrated open ocean data product on inorganic carbon and carbon-relevant variables
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/IOMB-Data/DATA/GLODAP2.2022/o2.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{env("HOME")}/.intake/cache'
+
+  o2 | WOA2018: 
+    description: World Ocean Atlas
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/IOMB-Data/DATA/WOA2018/o2.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{env("HOME")}/.intake/cache'
+
+  po4 | GLODAP2.2022: 
+    description: Global Ocean Data Analysis Project, A uniformly calibrated open ocean data product on inorganic carbon and carbon-relevant variables
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/IOMB-Data/DATA/GLODAP2.2022/po4.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{env("HOME")}/.intake/cache'
+
+  po4 | WOA2018: 
+    description: World Ocean Atlas
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/IOMB-Data/DATA/WOA2018/po4.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{env("HOME")}/.intake/cache'
+
+  sio3 | GLODAP2.2022: 
+    description: Global Ocean Data Analysis Project, A uniformly calibrated open ocean data product on inorganic carbon and carbon-relevant variables
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/IOMB-Data/DATA/GLODAP2.2022/sio3.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{env("HOME")}/.intake/cache'
+
+  sio3 | WOA2018: 
+    description: World Ocean Atlas
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/IOMB-Data/DATA/WOA2018/sio3.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{env("HOME")}/.intake/cache'
+
+  so | GLODAP2.2022: 
+    description: Global Ocean Data Analysis Project, A uniformly calibrated open ocean data product on inorganic carbon and carbon-relevant variables
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/IOMB-Data/DATA/GLODAP2.2022/so.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{env("HOME")}/.intake/cache'
+
+  so | WOA2018: 
+    description: World Ocean Atlas
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/IOMB-Data/DATA/WOA2018/so.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{env("HOME")}/.intake/cache'
+
+  talk | GLODAP2.2022: 
+    description: Global Ocean Data Analysis Project, A uniformly calibrated open ocean data product on inorganic carbon and carbon-relevant variables
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/IOMB-Data/DATA/GLODAP2.2022/talk.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{env("HOME")}/.intake/cache'
+
+  thetao | GLODAP2.2022: 
+    description: Global Ocean Data Analysis Project, A uniformly calibrated open ocean data product on inorganic carbon and carbon-relevant variables
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/IOMB-Data/DATA/GLODAP2.2022/thetao.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{env("HOME")}/.intake/cache'
+
+  thetao | WOA2018: 
+    description: World Ocean Atlas
+    driver: netcdf
+    args:
+      urlpath: 'filecache::https://www.ilamb.org/IOMB-Data/DATA/WOA2018/thetao.nc'
+      storage_options:
+        filecache:
+          cache_storage: '{env("HOME")}/.intake/cache'
